@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PAC-MAN Website Assignment</title>
+        <meta charset="UTF-8">
+        <style>
+            @font-face
+            {
+                font-family: 'prstartk';
+                src: url('prstartk.ttf'); /* IE9 Compat Modes */
+            }
+            .whiteText
+            {
+                font-family: prstartk;
+                color: #FFFFFF;
+            }
+            .insertCoins
+            {
+                padding-bottom: 185px;
+            }
+
+            .yellowText
+            {
+                font-family: prstartk;
+                color: #FFD300;
+            }
+
+            .redText
+            {
+              font-family: prstartk;
+              color: #FF0401;
+            }
+
+            .blueText
+            {
+              font-family: prstartk;
+              color: #01F8F8;
+            }
+
+            .pinkText
+            {
+              font-family: prstartk;
+              color: #FF60B0;
+            }
+
+            .orangeText
+            {
+              font-family: prstartk;
+              color: #FFA002;
+            }
+
+            .highScoreTable
+            {
+                padding-top: 20px;
+                padding-bottom: 70px;
+                table-layout: fixed;
+                width: 1800px;
+                font-size: 28px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .highScoreLabels
+            {
+                padding-bottom: 40px
+            }
+
+            .scoreColourText:nth-child(4n+1)
+            {
+                font-family: prstartk;
+                color: #FFA002;
+            }
+
+            .scoreColourText:nth-child(4n+2)
+            {
+                font-family: prstartk;
+                color: #FF0401;
+            }
+
+            .scoreColourText:nth-child(4n+3)
+            {
+                font-family: prstartk;
+                color: #01F8F8;
+            }
+
+            .scoreColourText:nth-child(4n+0)
+            {
+                font-family: prstartk;
+                color: #FF60B0;
+            }
+
+            .playersTitle
+            {
+              text-align: center;
+              font-size: 30px;
+              padding-top: 20px;
+            }
+
+            .ghostSize
+            {
+              width: 75px;
+              height: 75px;
+              transform: scaleX(-1);
+            }
+
+            .playersTable
+            {
+                table-layout: fixed;
+                width: 1000px;
+                font-size: 30px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .playersElement
+            {
+              text-align: left;
+              font-size: 30px;
+              padding-top: 30px;
+            }
+
+            .ptsText
+            {
+              text-align: center;
+              font-size: 25px;
+            }
+
+            a {
+                text-decoration: none;
+                transition: 0.5s;
+                font-family: prstartk;
+                color: #FFFFFF;
+            }
+
+            a:hover{
+              color: #FFD300;
+            }
+
+            html, body{
+                max-width: 100%;
+                overflow-x: hidden;
+                background-color: black;
+            }
+
+            section{
+                border-bottom: 2px #FFFF00 solid;
+            }
+
+            td.highscore{
+                padding: 10px;
+            }
+
+            td.ghostEntry{
+              height:95px;
+              text-align:center;
+              width:20%
+            }
+            td.ghostName
+            {
+              width:35%
+            }
+            td.ghostNickName
+            {
+              width:45%
+            }
+
+            p.howToPlay{
+                font-size: 25px;
+                margin: 0;
+                line-height: 1.5;
+            }
+
+
+
+           .yellowSquare
+            {
+                height: 40px;
+                width: 40px;
+                background-color: #FFD300;
+                display: inline-block;
+            }
+
+            .yellowSquare2
+            {
+                height: 20px;
+                width: 20px;
+                background-color: #FFD300;
+                display: inline-block;
+            }
+
+
+
+            #homePage
+            {
+                padding-top: 45px;
+                padding-left: 5px;
+            }
+
+            #highScorePage
+            {
+                padding-top: 40px;
+                text-align: center;
+            }
+
+            .slideAnim
+            {
+                padding-right: 50px;
+                width: 75px;
+                height: 75px;
+                animation: leftToRight 6s linear infinite;
+                float: right;
+            }
+
+            .blink
+            {
+                font-size: 30px;
+                padding-top: 200px;
+                text-align: center;
+                animation: blink_animation 2s steps(2, end) infinite;
+            }
+
+            .slideAnimOpposite
+            {
+                padding-right: 50px;
+                width: 75px;
+                animation: rightToLeft 6s linear infinite;
+                float: left;
+            }
+
+            @keyframes leftToRight
+            {
+                from
+                {
+                    transform:translateX(750px)
+                }
+                to
+                {
+                    transform: translateX(-2000px)
+                }
+            }
+
+            @keyframes leftToRight2
+            {
+                from
+                {
+                    transform:translateX(750px) scaleX(-1)
+                }
+                to
+                {
+                    transform: translateX(-2000px) scaleX(-1)
+                }
+            }
+
+            @keyframes blink_animation
+            {
+                from{
+                    visibility: hidden;
+                }
+                to
+                {
+                    visibility: visible;
+                }
+            }
+
+            @keyframes rightToLeft
+            {
+                from
+                {
+                    transform:translateX(-700px)
+                }
+                to
+                {
+                    transform: translateX(2000px)
+                }
+            }
+
+
+
+        </style>
+    </head>
+    <body>
+            <br>
+            <header style = "text-align: center;">
+                <nav>
+                <a class = "whiteText" style="padding-left:100px;" href="#homePage">HOME</a>
+                <a class = "whiteText" style="padding-left:100px; padding-right: 50px;" href="#highScorePage">HIGH SCORES</a>
+                <a class = "whiteText" style="padding-left:50px; padding-right: 100px;" href="#howToPlay">HOW TO PLAY</a>
+                <a class = "whiteText" style="padding-right:100px;" href="#players">PLAYERS</a>
+                </nav>
+            </header>
+
+            <section id = "homePage">
+                <div style = "text-align: center">
+                    <img src="Pac_man_logo.png" width="675" height="210" alt = "PACMAN_TITLE_LOGO">
+                </div>
+
+                <div style = "padding-top: 175px;">
+                    <img class = "slideAnim" src ="Inky.png" alt ="movingBlueGhost">
+                    <img class = "slideAnim" src ="Clyde.png" alt ="movingOrangeGhost">
+                    <img class = "slideAnim" src ="Pinky.png" alt ="movingPinkGhost">
+                    <img class = "slideAnim" src ="Blinky.png" alt ="movingRedGhost">
+                    <img class = "slideAnim" src ="Pacman-moving.gif" alt ="movingPacman" style ="padding-left:200px; animation: leftToRight2 6s linear infinite;">
+                </div>
+
+                <div class = "whiteText insertCoins blink">
+                    INSERT COINS
+                </div>
+
+            </section>
+
+
+            <section id = "highScorePage">
+                <h1 class = "yellowText ready" style = "padding-bottom: 25px; font-size: 35px;"> READY!</h1>
+                <h2 class = "whiteText" style = "font-size: 30px;"> THE 10 BEST PLAYERS</h2>
+                <table class = "highScoreTable">
+                    <tbody>
+                        <tr class="whiteText">
+                            <th class="highScoreLabels">RANK</th>
+                            <th class="highScoreLabels">SCORE</th>
+                            <th class="highScoreLabels">INITIALS</th>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">1st</td>
+                            <td class="highscore">10,000</td>
+                            <td class="highscore">MJA</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">2nd</td>
+                            <td class="highscore">9,000</td>
+                            <td class="highscore">ARL</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">3rd</td>
+                            <td class="highscore">8,000</td>
+                            <td class="highscore">HBA</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">4th</td>
+                            <td class="highscore">7,000</td>
+                            <td class="highscore">JKL</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">5th</td>
+                            <td class="highscore">6,000</td>
+                            <td class="highscore">TAP</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">6th</td>
+                            <td class="highscore">5,000</td>
+                            <td class="highscore">ART</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">7th</td>
+                            <td class="highscore">4,000</td>
+                            <td class="highscore">BOX</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">8th</td>
+                            <td class="highscore">3,000</td>
+                            <td class="highscore">YES</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">9th</td>
+                            <td class="highscore">2,000</td>
+                            <td class="highscore">LOL</td>
+                        </tr>
+
+                        <tr class="scoreColourText">
+                            <td class="highscore">10th</td>
+                            <td class="highscore">1,000</td>
+                            <td class="highscore">AAA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="howToPlay">
+                <div style = "padding-top: 200px;">
+                    <img class = "slideAnimOpposite" src ="Pacman-moving.gif" alt ="movingPacman" style ="padding-right:150px;">
+                    <img class = "slideAnimOpposite" src ="Eaten.png" alt ="movingEatenGhost">
+                    <img class = "slideAnimOpposite" src ="Eaten.png" alt ="movingEatenGhost">
+                    <img class = "slideAnimOpposite" src ="Eaten.png" alt ="movingEatenGhost">
+                    <img class = "slideAnimOpposite" src ="Eaten.png" alt ="movingEatenGhost">
+                </div>
+
+                <div style = "width:55%; text-align: center; margin:0 auto; padding-bottom: 150px;">
+                    <p class = "whiteText" style = "text-align:center; padding-top: 150px; padding-bottom: 20px; font-size: 30px;"> HOW TO PLAY</p>
+                    <br>
+                    <p class = "yellowText howToPlay" >SIMPLY SCORE AS MANY POINTS AS YOU</p>
+                    <p class = "whiteText howToPlay">
+                        eating the small dots all around the maze. 10 points per dot (250 of them). Big points come when you eat 1 of the 4 Big flashing dots called Energizers worth 50 points located in each corner of the maze.
+                    </p>
+                </div>
+
+            </section>
+
+            <section id="players">
+              <p class = "whiteText playersTitle" style="padding-top: 30px;">
+                  PLAYERS
+              </p>
+              <div class = "whiteText playersTitle" style="padding-top: 20px; padding-bottom: 5px;">
+                     CHARACTER  / NICKNAME
+              </div>
+
+              <table class = "playersTable" style="padding-bottom: 40px">
+                <tr class = "redText playersElement">
+                    <td class = "ghostEntry"><img src = "Blinky.png" class="ghostSize" alt ="Red Ghost"></td>
+                    <td class = "ghostName">-SHADOW </td>
+                    <td class = "ghostNickName">"BLINKY" </td>
+                </tr>
+
+                <tr class = "pinkText playersElement">
+                    <td class = "ghostEntry"><img src = "Pinky.png" class="ghostSize" alt ="Pink Ghost"></td>
+                    <td class="ghostName"> -SPEEDY </td>
+                    <td class="ghostNickName"> "PINKY" </td>
+                </tr>
+
+                <tr class = "blueText playersElement">
+                  <td class = "ghostEntry"><img src = "Inky.png" class="ghostSize" alt ="Blue Ghost"></td>
+                  <td class="ghostName"> -BASHFUL </td>
+                  <td class="ghostNickName"> "INKY" </td>
+                </tr>
+
+                <tr class = "orangeText playersElement">
+                  <td class = "ghostEntry"><img src = "Clyde.png" class="ghostSize" alt ="Orange Ghost"></td>
+                  <td class="ghostName"> -POKEY </td>
+                  <td class="ghostNickName"> "CLYDE" </td>
+                </tr>
+              </table>
+
+              <div class = "whiteText ptsText">
+                  <p style = "display: inline-block; padding-right: 70px">200 PTS</p> <img  src ="Eaten.png" class="ghostSize" alt = "Eaten Ghost"> <img src ="Eaten.png" class="ghostSize" alt = "Eaten Ghost"> <img src ="Eaten.png" class="ghostSize" alt = "Eaten Ghost">
+              </div>
+
+              <div class = "whiteText ptsText">
+                  <p style = "display: inline-block; padding-right: 70px">50 PTS</p> <div class = "yellowSquare"></div>
+              </div>
+
+              <div class = "whiteText ptsText">
+                  <p style = "display: inline-block; padding-right: 95px">10 PTS</p> <div class = "yellowSquare2"></div>
+              </div>
+
+            </section>
+            <footer style = "text-align: center;">
+                <p class ="whiteText"> THIS SITE HAS NO AFFILIATION WITH THE ACTUAL PACMAN GAME </p>
+            </footer>
+    </body>
+</html>
