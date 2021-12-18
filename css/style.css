@@ -1,3 +1,20 @@
 .hero-title {
     font-size: 8vw;
 }
+
+.mainDisplayDiv{
+  background-image: url('../images/dark.jpg');
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profilePic{
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
