@@ -2,7 +2,7 @@
     font-size: 5vw;
     display: inline;
     color: white;
-    white-space: pre-line;
+    height: auto;
 }
 
 .hero-text {
@@ -34,7 +34,7 @@ span.spanText{
 }
 
 .profilePic{
-  width: 100%;
+  width: 85%;
   height: auto;
   max-width: 400px;
   padding-right: 5%;
@@ -43,7 +43,51 @@ span.spanText{
 }
 
 .productRecommendation{
-  font-size: 2vw;
+  font-size: 3vw;
   margin-top: 5%;
   color: white;
+}
+
+.aboutUs-title{
+  font-size: 5vw;
+  margin-top: 1.5%;
+  margin-bottom: 1.5.%;
+  color: white;
+}
+
+.aboutUs-text{
+  padding-left:8%;
+  padding-right:8%;
+  text-align: justify;
+  font-size: 1.8vw;
+  color:white;
+}
+
+.aboutUs-PictureLabel{
+    text-align: center;
+    font-size: 1.8vw;
+    color:white;
+}
+
+.camaroWidth{
+  width: 80%;
+}
+
+.specs{
+  style:width:100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+th{
+  width: 10%;
+  max-width: 190px;
+  text-align: left;
+  font-size: 1.3vw;
+}
+
+td{
+  width: 10%;
+  max-width: 190px;
+  text-align: left;
+  font-size: 1.3vw;
 }
