@@ -1,12 +1,24 @@
 .hero-title {
-    font-size: 8vw;
+    font-size: 5vw;
+    display: inline;
+    color: white;
+    white-space: pre-line;
+}
+
+.hero-text {
+  font-size: 3vw;
+  display: inline;
+  color: white;
+  width: 50%;
+  height: auto;
+  max-width: 100px;
 }
 
 .mainDisplayDiv{
   background-image: url('../images/dark.jpg');
   width: 100%;
   height: auto;
-  max-width: 1000px;
+  max-width: 1200px;
   text-align: center;
   display: block;
   margin-left: auto;
@@ -15,6 +27,9 @@
 
 .profilePic{
   width: 100%;
-  max-width: 400px;
   height: auto;
+  max-width: 400px;
+  padding-right: 5%;
+  margin-top: 3%;
+  display: inline;
 }
